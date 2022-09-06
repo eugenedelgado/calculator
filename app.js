@@ -1,7 +1,8 @@
 let result,
 	fnumber = 0,
 	lnumber = 0,
-	operator
+	operator,
+	prevNumber = 0
 
 for (let i = 0; i < 10; i++) {
 	document.getElementById(i).onclick = function () {
@@ -25,35 +26,129 @@ document.getElementById('posNegBtn').onclick = function () {
 }
 
 document.getElementById('sumBtn').onclick = function () {
-	fnumber = document.getElementById('text').value
-	fnumber = Number(fnumber)
+	if (document.getElementById('text').value == '') {
+		document.getElementById('prevText').value =
+			document.getElementById('prevText').value.split(' ')[0] + ' +'
+	} else if (document.getElementById('prevText').value.length > 0) {
+		let op = document.getElementById('prevText').value.split(' ')[1]
+		fnumber = document.getElementById('text').value
+		fnumber = Number(fnumber)
+		prevNumber = document.getElementById('prevText').value.split(' ')[0]
+		prevNumber = Number(prevNumber)
+		switch (op) {
+			case '+':
+				fnumber = prevNumber + fnumber
+				break
+			case '-':
+				fnumber = prevNumber - fnumber
+				break
+		}
+	} else {
+		fnumber = document.getElementById('text').value
+		fnumber = Number(fnumber)
+	}
 	operator = 'sum'
 	document.getElementById('text').value = ''
-	document.getElementById('prevText').value = fnumber + '+'
+	document.getElementById('prevText').value = fnumber + ' +'
 }
 
 document.getElementById('diffBtn').onclick = function () {
-	fnumber = document.getElementById('text').value
-	fnumber = Number(fnumber)
+	if (document.getElementById('text').value == '') {
+		document.getElementById('prevText').value =
+			document.getElementById('prevText').value.split(' ')[0] + ' -'
+	} else if (document.getElementById('prevText').value.length > 0) {
+		let op = document.getElementById('prevText').value.split(' ')[1]
+		fnumber = document.getElementById('text').value
+		fnumber = Number(fnumber)
+		prevNumber = document.getElementById('prevText').value.split(' ')[0]
+		prevNumber = Number(prevNumber)
+		switch (op) {
+			case '+':
+				fnumber = prevNumber + fnumber
+				break
+			case '-':
+				fnumber = prevNumber - fnumber
+				break
+			case '*':
+				fnumber = prevNumber * fnumber
+				break
+			case '/':
+				fnumber = prevNumber / fnumber
+				break
+		}
+	} else {
+		fnumber = document.getElementById('text').value
+		fnumber = Number(fnumber)
+	}
 	operator = 'diff'
 	document.getElementById('text').value = ''
-	document.getElementById('prevText').value = fnumber + '-'
+	document.getElementById('prevText').value = fnumber + ' -'
 }
 
 document.getElementById('prodBtn').onclick = function () {
-	fnumber = document.getElementById('text').value
-	fnumber = Number(fnumber)
+	if (document.getElementById('text').value == '') {
+		document.getElementById('prevText').value =
+			document.getElementById('prevText').value.split(' ')[0] + ' *'
+	} else if (document.getElementById('prevText').value.length > 0) {
+		let op = document.getElementById('prevText').value.split(' ')[1]
+		fnumber = document.getElementById('text').value
+		fnumber = Number(fnumber)
+		prevNumber = document.getElementById('prevText').value.split(' ')[0]
+		prevNumber = Number(prevNumber)
+		switch (op) {
+			case '+':
+				fnumber = prevNumber + fnumber
+				break
+			case '-':
+				fnumber = prevNumber - fnumber
+				break
+			case '*':
+				fnumber = prevNumber * fnumber
+				break
+			case '/':
+				fnumber = prevNumber / fnumber
+				break
+		}
+	} else {
+		fnumber = document.getElementById('text').value
+		fnumber = Number(fnumber)
+	}
 	operator = 'prod'
 	document.getElementById('text').value = ''
-	document.getElementById('prevText').value = fnumber + '*'
+	document.getElementById('prevText').value = fnumber + ' *'
 }
 
 document.getElementById('qouBtn').onclick = function () {
-	fnumber = document.getElementById('text').value
-	fnumber = Number(fnumber)
+	if (document.getElementById('text').value == '') {
+		document.getElementById('prevText').value =
+			document.getElementById('prevText').value.split(' ')[0] + ' /'
+	} else if (document.getElementById('prevText').value.length > 0) {
+		let op = document.getElementById('prevText').value.split(' ')[1]
+		fnumber = document.getElementById('text').value
+		fnumber = Number(fnumber)
+		prevNumber = document.getElementById('prevText').value.split(' ')[0]
+		prevNumber = Number(prevNumber)
+		switch (op) {
+			case '+':
+				fnumber = prevNumber + fnumber
+				break
+			case '-':
+				fnumber = prevNumber - fnumber
+				break
+			case '*':
+				fnumber = prevNumber * fnumber
+				break
+			case '/':
+				fnumber = prevNumber / fnumber
+				break
+		}
+	} else {
+		fnumber = document.getElementById('text').value
+		fnumber = Number(fnumber)
+	}
 	operator = 'qou'
 	document.getElementById('text').value = ''
-	document.getElementById('prevText').value = fnumber + '/'
+	document.getElementById('prevText').value = fnumber + ' /'
 }
 
 document.getElementById('equalsBtn').onclick = function () {
@@ -105,6 +200,7 @@ document.getElementById('clearBtn').onclick = function () {
 	document.getElementById('text').value = ''
 	lnumber = ''
 	fnumber = ''
+	prevNumber = ''
 }
 
 document.getElementById('deleteBtn').onclick = function () {

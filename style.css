@@ -91,6 +91,11 @@ button:active {
 	height: auto;
 	background-color: rgb(3, 219, 78);
 }
+#diffBtn,
+#qouBtn,
+#prodBtn {
+	background-color: rgb(3, 219, 78);
+}
 
 #equalsBtn {
 	background-color: rgb(0, 110, 255);
